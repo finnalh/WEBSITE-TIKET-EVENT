@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="frame">
+            <!-- Side Image Container -->
+            <div class="image-container">
+                <img src="knsr.jpg" alt="Concert" class="side-image">
+            </div>
+            <div class="form-container">
+                <h3>SELAMAT DATANG</h3>
+                <!-- Form Section -->
+                <form id="loginForm">
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Masukkan email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Masukkan password" required>
+                    </div>
+                    <!-- CAPTCHA Section -->
+                    <div class="input-group">
+                        <label for="captcha">Captcha: <span id="captchaValue"></span></label>
+                        <input type="text" id="captchaInput" placeholder="Masukkan captcha di atas" required>
+                    </div>
+                    <!-- Error message -->
+                    <p id="errorMessage" style="color: red; display: none;"></p>
+                    <!-- Submit button -->
+                    <button type="submit" class="main-btn">Masuk</button>
+                </form>
+
+                <div class="separator">
+                    <hr class="line"><span>atau</span><hr class="line">
+                </div>
+
+                <!-- Tombol Masuk dengan Google -->
+                <button class="google-btn">
+                    <img src="google.png" alt="Google Icon" class="google-icon">
+                    Masuk dengan akun Google
+                </button>
+
+                <p class="signup-text">Belum punya akun? <a href="Sign_Up.html">Daftar</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

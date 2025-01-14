@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Main Frame Container -->
+        <div class="frame">
+
+            <!-- Side Image Container -->
+            <div class="image-container">
+                <img src="wpp.jpg" alt="Concert" class="side-image">
+            </div>
+
+            <!-- Form Container -->
+            <div class="form-container">
+                <h3>Belum punya akun? Silahkan Isi Duluuuuuuuuu</h3>
+                <form id="signupForm">
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Masukkan email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="name">Nama</label>
+                        <input type="text" id="name" name="name" placeholder="Masukkan nama" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Masukkan password" required>
+                        <p id="passwordError" style="color: red; display: none;">Password harus memiliki panjang minimal 8 karakter.</p>
+                        <p id="passwordInvalidError" style="color: red; display: none;">Password mengandung karakter tidak valid.</p>
+                    </div>
+                    <div class="input-group">
+                        <label for="captcha">Captcha: <span id="captchaValue"></span></label>
+                        <input type="text" id="captchaInput" name="captcha" placeholder="Masukkan captcha di atas" required>
+                    </div>
+                    <p id="errorMessage" style="color: red; display: none;"></p>
+                    <button type="submit" class="main-btn">Daftar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Generate random CAPTCHA (numbers and letters)
+        function generateCaptcha() {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let captcha = '';
+            for (let i = 0; i < 6; i++) {
+                captcha += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            document.getElementById('captchaValue').textContent = captcha;
+            return captcha;
+        }
+
+        // Store CAPTCHA value globally
+        let captchaValue = generateCaptcha();
+
+        // Ambil elemen input password dan elemen error message
+        const passwordInput = document.getElementById('password');
+        const passwordError = document.getElementById('passwordError');
+        const passwordInvalidError = document.getElementById('passwordInvalidError');
+        const form = document.getElementById('signupForm');
+        const errorMessage = document.getElementById('errorMessage');
+
+        // Tambahkan event listener untuk input real-time
+        passwordInput.addEventListener('input', function () {
+            const passwordValue = passwordInput.value;
+
+            // Validasi panjang password
+            if (passwordValue.length < 8) {
+                passwordError.style.display = 'block';
+            } else {
+                passwordError.style.display = 'none';
+            }
+
+            // Validasi karakter tidak valid
+            const validCharacters = /^[A-Za-z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+$/;
+            if (!validCharacters.test(passwordValue)) {
+                passwordInvalidError.style.display = 'block';
+            } else {
+                passwordInvalidError.style.display = 'none';
+            }
+        });
+
+        // Tambahkan validasi akhir pada form submission
+        form.addEventListener('submit', function (event) {
+            event.preventDefault(); // Cegah pengiriman form secara default
+
+            const email = document.getElementById('email').value;
+            const name = document.getElementById('name').value;
+            const password = passwordInput.value;
+            const userInputCaptcha = document.getElementById('captchaInput').value;
+
+            // Validasi panjang password
+            if (password.length < 8) {
+                passwordError.style.display = 'block';
+                return;
+            }
+
+            // Validasi karakter tidak valid pada password
+            const validCharacters = /^[A-Za-z0-9!#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+$/;
+            if (!validCharacters.test(password)) {
+                passwordInvalidError.style.display = 'block';
+                return;
+            }
+
+            // Validasi CAPTCHA
+            if (userInputCaptcha !== captchaValue) {
+                errorMessage.textContent = 'CAPTCHA salah, coba lagi!';
+                errorMessage.style.display = 'block';
+                captchaValue = generateCaptcha(); // Regenerate CAPTCHA
+                return;
+            }
+
+            // Simulasi pendaftaran berhasil
+            errorMessage.style.display = 'none';
+            alert(`Selamat ${name}, Anda berhasil mendaftar!`);
+            form.reset();
+            captchaValue = generateCaptcha(); // Regenerate CAPTCHA
+        });
+    </script>
+</body>
+</html>

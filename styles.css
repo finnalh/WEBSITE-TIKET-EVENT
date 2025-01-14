@@ -1,0 +1,190 @@
+/* Container styling */
+body {
+    background-color: #000000;
+    font-family: Arial, sans-serif;
+}
+
+.main-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.frame {
+    display: flex;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Lebih jelas dengan shadow */
+}
+
+.form-container {
+    width: 400px; /* Lebih lebar untuk kenyamanan input */
+    padding: 25px;
+    text-align: left;
+}
+
+.image-container {
+    width: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 0px;
+}
+
+.side-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Title styling */
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #b22222;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Input group styling */
+.input-group {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.input-group label {
+    font-size: 14px;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 90%; /* Beri ruang pada sisi kanan dan kiri */
+    padding: 12px; /* Tambahkan padding untuk kenyamanan */
+    margin-left: 0%; /* Geser ke kanan untuk memberi margin kiri */
+    border: 2px solid #000000;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan */
+}
+
+.input-group input::placeholder {
+    color: #bbb;
+}
+
+.input-group input:hover {
+    border-color: #007BFF; /* Warna biru pada hover */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Efek glow saat hover */
+}
+
+/* Main button styling - smaller size */
+.main-btn {
+    width: 100%;
+    padding: 10px; 
+    border: 2px solid #000000;
+    color: #000000;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 15px;
+    background-color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.main-btn:hover {
+    background-color: #557596;
+    color: #fff;
+}
+
+/* Google Button Styling */
+.google-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: white;
+    border: none;
+    border: 2px solid #000000; 
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #555;
+    margin-top: 15px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.google-btn:hover {
+    background-color: #f7f7f7;
+}
+
+/* Google Icon styling */
+.google-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+/* Separator styling */
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #999;
+    margin: 15px 0;
+}
+
+.separator .line {
+    flex-grow: 1;
+    border: none;
+    height: 1px;
+    background-color: #b22222;
+}
+
+.separator span {
+    margin: 0 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Sign-up text styling */
+.signup-text {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.signup-text a {
+    color: #005eff;
+    text-decoration: none;
+}
+
+.signup-text a:hover {
+    text-decoration: underline;
+}
+
+/* Custom CSS for card headers */
+.card-header {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+/* Center align text in the card headers */
+.text-center {
+    text-align: center;
+}
+
+/* Footer link styling */
+footer a {
+    text-decoration: none;
+    font-weight: bold;
+}
+footer a:hover {
+    text-decoration: underline;
+}
